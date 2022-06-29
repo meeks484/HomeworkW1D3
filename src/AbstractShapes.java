@@ -1,7 +1,7 @@
 abstract class AbstractShapes {
-
-    public abstract float printArea(float diameter);
-    //public abstract float printArea(float width,float height);
+    final int dimensionA = 3;
+    final int dimensionB = 4;
+    public abstract void printArea();
 }
 
 

@@ -1,4 +1,6 @@
 public class Circle extends AbstractShapes{
     final float PI = 3.14f;
-    public float printArea(float diameter){return this.PI * diameter * diameter / 4;}
+        public void printArea(){
+            //Dimensions represents radius of an ellipse (circle if A and B are equal)
+        System.out.println((this.PI * (float)this.dimensionA * (float)this.dimensionB));}
 }
