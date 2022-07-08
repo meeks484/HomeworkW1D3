@@ -14,12 +14,12 @@ public class GuessingGame {
     private int numGuessesTaken;
     private int previousDifferential;
 
-    public void GuessingGame(){
+    public GuessingGame(){
         setMax(0);
         generator = new Random();
     }
 
-    public void GuessingGame(int max){
+    public GuessingGame(int max){
         setMax(max);
         generator = new Random();
     }

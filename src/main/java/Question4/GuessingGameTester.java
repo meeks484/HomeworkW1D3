@@ -8,7 +8,7 @@ public class GuessingGameTester {
         GuessingGame game = new GuessingGame();
         String anotherGame = "Y";
         boolean newGame = true;
-
+        //game.GuessingGame();
         while (anotherGame.equals("Y")) {
             System.out.println("Welcome to the Guessing Game");
             System.out.println("Enter the maximum number");
