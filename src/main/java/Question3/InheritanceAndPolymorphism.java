@@ -1,3 +1,5 @@
+package Question3;
+
 public class InheritanceAndPolymorphism {
     public static class Person{
         String name;
@@ -14,8 +16,15 @@ public class InheritanceAndPolymorphism {
         }
     }
     public static class Student extends Person{
-        Status status;
+        String status;
 
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
     }
 
     public static class Employee extends Person{
@@ -33,18 +42,16 @@ public class InheritanceAndPolymorphism {
         String title;
     }
 
-    public static enum Status{
-        FRESHMAN, SOPHOMORE, JUNIOR, SENIOR;
-        public String getStatus(){
-            switch(this){
-                case FRESHMAN: return "Freshman";
-                case SOPHOMORE: return "Sophomore";
-                case JUNIOR: return "Junior";
-                case SENIOR: return "Senior";
-                default: return "Wrong";
-            }
-        }
-    }
+
+//        public String getStatus(){
+//            switch(this){
+//                case FRESHMAN: return "Freshman";
+//                case SOPHOMORE: return "Sophomore";
+//                case JUNIOR: return "Junior";
+//                case SENIOR: return "Senior";
+//                default: return "Wrong";
+//            }
+//        }
     public static void main(String[] args) {
         Person person = new Person();
         person.setName("I'm a Person");
@@ -52,6 +59,7 @@ public class InheritanceAndPolymorphism {
 
         Student student = new Student();
         student.setName("I'm a Student");
+        student.setStatus(Status.FRESHMAN.getStatus());
         System.out.println(student);
 
         Employee employee = new Employee();

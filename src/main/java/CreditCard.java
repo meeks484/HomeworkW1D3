@@ -1,13 +1,28 @@
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import java.util.Scanner;
 
 public class CreditCard {
+    /*Verify if a credit card number is a valid or invalid number
+    */
+
+    //Ask the user to enter a credit card number and print weather its valid or not. 
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter a credit card number as a long integer");
         long number = Long.parseLong(myObj.nextLine());
         if (isValid(number)){System.out.println(number+" is valid");}
         else{System.out.println(number+" is invalid");}
+
+
     }
+
+    @Test
+    public void testIsValid() {
+        Assertions.assertEquals(true, CreditCard.isValid(431746198327461L));
+    }
+
 
     public static boolean isValid(long number){
         if (getSize(number)>=13 && getSize(number)<=16){
@@ -37,8 +52,12 @@ public class CreditCard {
     }
 
     public static int getDigit(int number){
-        if (number>=10){return number/10+number%10;}
-        else{return number;}
+        if (number >= 10) {
+            return number/10 + number%10;
+        }
+        else {
+            return number;
+        }
     }
 
     public static int sumOfOddPlace(long number){
