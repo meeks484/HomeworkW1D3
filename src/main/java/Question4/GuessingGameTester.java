@@ -12,20 +12,16 @@ public class GuessingGameTester {
         while (anotherGame.equals("Y")) {
             System.out.println("Welcome to the Guessing Game");
             System.out.println("Enter the maximum number");
-            game.setMax(input.nextInt());
+            game.setMax(Integer.parseInt(input.nextLine()));
             System.out.println("Enter the number of guesses allowed:");
-            game.newGame(input.nextInt());
+            game.newGame(Integer.parseInt(input.nextLine()));
             while (!game.isGameOver()) {
                 System.out.println("Enter your guess, remember it must be between 0 and " + game.getMax());
-                game.guess(input.nextInt());
+                game.guess(Integer.parseInt(input.nextLine()));
             }
             System.out.println("Would you like to play again, enter Y for yes, N for no");
+
             anotherGame = input.nextLine();
         }
-
-
-
-
     }
-
 }

@@ -1,8 +1,6 @@
 package Question4;
 
-import org.junit.jupiter.api.Test;
 import java.util.Random;
-import java.util.Scanner;
 
 public class GuessingGame {
     private int answer;
@@ -14,24 +12,28 @@ public class GuessingGame {
     private int numGuessesTaken;
     private int previousDifferential;
 
+    //Parameterless constructor
     public GuessingGame(){
         setMax(0);
         generator = new Random();
     }
-
+    //Parameterize constructor
     public GuessingGame(int max){
         setMax(max);
         generator = new Random();
     }
 
+    //Initialize parameters when a new game is started
     public void newGame(int maxGuessesAllowed){
         setMaxGuessesAllowed(maxGuessesAllowed);
         answer = getAnswer();
         setGameOver(false);
         setDifferential(getMax());
         setNumGuessesTaken(0);
+        setPreviousDifferential(getMax());
     }
 
+    //Display the response once a guess is given
     public void guess(int guessIn){
         setDifferential(guessIn-answer);
         if (guessIn < getMax()){
@@ -48,20 +50,27 @@ public class GuessingGame {
                 } else {
                     System.out.println("Getting Colder");
                 }
-                setPreviousDifferential(getDifferential());
+                setPreviousDifferential(Math.abs(getDifferential()));
             }
         }else{
             System.out.println("Guess out of range. The guess must be between 0 and " + getMax());
         }
-        setNumGuessesTaken(getNumGuessesTaken()+1);
+        setNumGuessesTaken(getNumGuessesTaken()+1); //increment the number of guesses taken.
     }
+    //determine if the game is over.
     public boolean isGameOver(){
-        if (getNumGuessesTaken()>getMaxGuessesAllowed() || getDifferential()==0){
+        if (getDifferential()==0){
             return true;
-        }else{
+        }else if (getNumGuessesTaken()>=getMaxGuessesAllowed()){
+            System.out.println("Exceeded the maximum number of guesses");
+            return true;
+        }
+        else{
             return false;
         }
     }
+
+    //generate the random number
     private int getRandomNumber(int range){
         return generator.nextInt(range);
     }
